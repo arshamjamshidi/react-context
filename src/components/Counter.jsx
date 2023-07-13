@@ -13,7 +13,7 @@ const Counter = () => {
   const [amount, setAmount] = useState(0);
   const {
     counter: { counter },
-    counterDispatch,
+    dispatch,
   } = useCounter();
 
   return (
@@ -24,12 +24,8 @@ const Counter = () => {
 
       <div>
         <h3>By Default</h3>
-        <button onClick={() => counterDispatch(incrementCounter())}>
-          increment
-        </button>
-        <button onClick={() => counterDispatch(decrementCounter())}>
-          decrement
-        </button>
+        <button onClick={() => dispatch(incrementCounter())}>increment</button>
+        <button onClick={() => dispatch(decrementCounter())}>decrement</button>
       </div>
 
       <div>
@@ -41,14 +37,10 @@ const Counter = () => {
             onChange={({ target }) => setAmount(target.value)}
           />
         </div>
-        <button
-          onClick={() => counterDispatch(incrementCounterByAmount(amount))}
-        >
+        <button onClick={() => dispatch(incrementCounterByAmount(amount))}>
           increment
         </button>
-        <button
-          onClick={() => counterDispatch(decrementCounterByAmount(amount))}
-        >
+        <button onClick={() => dispatch(decrementCounterByAmount(amount))}>
           decrement
         </button>
       </div>

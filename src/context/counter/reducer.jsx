@@ -33,10 +33,10 @@ const reducer = (state, action) => {
 const CounterContext = createContext();
 
 const CounterProvider = ({ children }) => {
-  const [counter, counterDispatch] = useReducer(reducer, initialState);
+  const [counter, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <CounterContext.Provider value={{ counter, counterDispatch }}>
+    <CounterContext.Provider value={{ counter, dispatch }}>
       {children}
     </CounterContext.Provider>
   );
